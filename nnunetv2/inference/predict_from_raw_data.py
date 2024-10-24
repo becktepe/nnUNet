@@ -570,7 +570,7 @@ class nnUNetPredictor(object):
             if self.verbose:
                 print(f'preallocating results arrays on device {results_device}')
             predicted_logits = torch.zeros((self.label_manager.num_segmentation_heads, *data.shape[1:]),
-                                           dtype=torch.half,
+                                           dtype=torch.float32,
                                            device=results_device)
             n_predictions = torch.zeros(data.shape[1:], dtype=torch.half, device=results_device)
 
